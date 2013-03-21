@@ -56,7 +56,7 @@
                 <class>SLV_SalesReport_Block</class>
             </slv_salesreport>
         </blocks>
-        <block_events>
+        <slv_salesreport_block_events>
             <Mage_Adminhtml_Block_Sales_Order_Grid>
                 <observers>
                     <type>singleton</type>
@@ -65,7 +65,7 @@
                     <parent>true</parent>
                 </observers>
             </Mage_Adminhtml_Block_Sales_Order_Grid>
-        </block_events>
+        </slv_salesreport_block_events>
         <helpers>
             <slv_salesreport>
                 <class>SLV_SalesReport_Helper</class>
@@ -75,11 +75,11 @@
             <adminhtml_block_html_before>
                 <!--Use For rewrite Adminhtml-->
                 <observers>
-                    <adminhtml_block_html_before>
+                    <adminhtml_block_html_before_slv_salesreport>
                         <type>singleton</type>
                         <class>slv_salesreport/blockObserver</class>
                         <method>runBlockObserver</method>
-                    </adminhtml_block_html_before>
+                    </adminhtml_block_html_before_slv_salesreport>
                 </observers>
             </adminhtml_block_html_before>
         </events>

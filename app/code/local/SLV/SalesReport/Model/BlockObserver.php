@@ -18,7 +18,7 @@ class SLV_SalesReport_Model_BlockObserver extends Mage_Core_Model_Abstract
             if ($cacheData !== false) {
                 $result = unserialize($cacheData);
             } else {
-                $entities = Mage::getConfig()->getNode('block_events', 'global');
+                $entities = Mage::getConfig()->getNode('slv_salesreport_block_events', 'global');
                 $result = array();
                 foreach ((array)$entities as $_key => $value) {
                     $result[$_key] = (array)$value->observers;
@@ -43,7 +43,7 @@ class SLV_SalesReport_Model_BlockObserver extends Mage_Core_Model_Abstract
         if ($cacheData !== false) {
             $result = unserialize($cacheData);
         } else {
-            $entities = Mage::getConfig()->getNode('block_events', 'global');
+            $entities = Mage::getConfig()->getNode('slv_salesreport_block_events', 'global');
             $result = array();
             foreach ((array)$entities as $key => $value) {
                 $result[] = $key;
