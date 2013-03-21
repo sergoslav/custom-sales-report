@@ -1,0 +1,3 @@
+#SLV Custom Sales Report
+/app/code/local/SLV/SalesReport
+/app/etc/modules/SLV_SalesReport.xml
