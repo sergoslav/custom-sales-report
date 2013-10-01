@@ -1,5 +1,5 @@
 <?php
-class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall extends Mage_Adminhtml_Block_Widget_Grid
+class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall2 extends Mage_Adminhtml_Block_Widget_Grid
 {
 
     public function __construct()
@@ -116,23 +116,6 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall extends Mage_Adminhtml
             'width'     => '90px',
         ));
 
-        $this->addColumn('billing_name', array(
-            'header' => Mage::helper('sales')->__('Billing Name'),
-            'index' => 'billing_name',
-            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_BillingName()
-        ));
-
-        $this->addColumn('shipping_name', array(
-            'header' => Mage::helper('sales')->__('Shipping Name'),
-            'index' => 'shipping_name',
-            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_ShippingName()
-        ));
-
-        $this->addColumn('customer_email', array(
-            'header' => Mage::helper('sales')->__('Email Address'),
-            'index' => 'customer_email',
-        ));
-
         $this->addColumn('base_grand_total', array(
             'header' => Mage::helper('sales')->__('G.T. (Base)'),
             'index' => 'base_grand_total',
@@ -147,40 +130,6 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall extends Mage_Adminhtml
             'currency' => 'order_currency_code',
         ));
 
-
-        $this->addColumn('shipping_method', array(
-            'header' => Mage::helper('sales')->__('Shipping Method'),
-            'index' => 'shipping_description',
-            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_ShippingMethod()
-        ));
-
-        $this->addColumn('cafepress_order_id', array(
-            'header'=> Mage::helper('sales')->__('Cafe Press Order #'),
-            'width' => '80px',
-            'type'  => 'text',
-            'index' => 'custom_number',
-        ));
-
-        $this->addColumn('status', array(
-            'header' => Mage::helper('sales')->__('Status'),
-            'index' => 'status',
-            'type'  => 'options',
-            'width' => '70px',
-            'options' => Mage::getSingleton('sales/order_config')->getStatuses(),
-        ));
-
-
-
-
-
-        return $this;
-
-
-
-
-
-
-
 //         $this->addColumn('cost', array(
 //            'header' => Mage::helper('sales')->__('cost'),
 //            'index' => 'subtotal',
@@ -188,7 +137,7 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall extends Mage_Adminhtml
 //            'currency' => 'base_currency_code',
 //            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_Cost()
 //        ));
-         $this->addColumn('cost', array(
+        $this->addColumn('cost', array(
             'header' => Mage::helper('sales')->__('cost'),
             'index' => 'subtotal',
             'type'  => 'currency',
@@ -234,13 +183,13 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall extends Mage_Adminhtml
         $this->addColumn('total_refunded', array(
             'header' => Mage::helper('sales')->__('Total Refunded'),
             'index' => 'total_refunded',
-            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_TotalRefunded()
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_TotalRefunded()
         ));
 
         $this->addColumn('customer_name', array(
             'header' => Mage::helper('sales')->__('Customer Name'),
             'index' => 'customer_name',
-            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_CustomerName()
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_CustomerName()
         ));
 
         $this->addColumn('customer_email', array(
@@ -253,35 +202,45 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall extends Mage_Adminhtml
         $this->addColumn('customer_group', array(
             'header' => Mage::helper('sales')->__('Customer Group'),
             'index' => 'customer_group',
-            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_CustomerGroup()
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_CustomerGroup()
         ));
 
-        $this->addColumn('account_executive',array(
-              'header'=> Mage::helper('sales')->__('Account Executive'),
-              'width' => '40px',
-              'type'  => 'text',
-              'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_Executive(),
-         ));
+//        $this->addColumn('account_executive',array(
+//            'header'=> Mage::helper('sales')->__('Account Executive'),
+//            'width' => '40px',
+//            'type'  => 'text',
+//            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_Executive(),
+//        ));
 
-        $this->addColumn('payment_terms',array(
-              'header'=> Mage::helper('sales')->__('Payment Terms'),
-              'width' => '40px',
-              'type'  => 'text',
-              'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_Payment(),
-         ));
+//        $this->addColumn('payment_terms',array(
+//            'header'=> Mage::helper('sales')->__('Payment Terms'),
+//            'width' => '40px',
+//            'type'  => 'text',
+//            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_Payment(),
+//        ));
 
         $this->addColumn('payment_method', array(
             'header' => Mage::helper('sales')->__('Payment Method'),
             'index' => 'payment_method',
-            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_PaymentMethod()
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_PaymentMethod()
         ));
 
+        $this->addColumn('shipping_name', array(
+            'header' => Mage::helper('sales')->__('Shipping Name'),
+            'index' => 'shipping_name',
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_ShippingName()
+        ));
 
+        $this->addColumn('billing_name', array(
+            'header' => Mage::helper('sales')->__('Billing Name'),
+            'index' => 'billing_name',
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_BillingName()
+        ));
 
         $this->addColumn('shipping_1', array(
             'header' => Mage::helper('sales')->__('Shipping Address'),
             'index' => 'shipping_address',
-            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_Shipping()
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_Shipping()
         ));
 
         $this->addColumn('shipping_company', array(
@@ -390,17 +349,22 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall extends Mage_Adminhtml
 //            'index' => 'total_qty_ordered',
 //            'type'  => 'number'
             'index' => 'qty_trucks',
-            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_Items()
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_Items()
         ));
 
         $this->addColumn('qty_gift', array(
             'header' => Mage::helper('sales')->__('qty_gift'),
             'index' => 'qty_gift',
-            'renderer' => new Oggetto_Wms_Block_Adminhtml_Sales_Order_Renderer_Gifts()
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_Gifts()
         ));
 
-
-
+        $this->addColumn('status', array(
+            'header' => Mage::helper('sales')->__('Status'),
+            'index' => 'status',
+            'type'  => 'options',
+            'width' => '70px',
+            'options' => Mage::getSingleton('sales/order_config')->getStatuses(),
+        ));
 
         return $this;
     }
