@@ -225,6 +225,12 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall2 extends Mage_Adminhtm
             'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_PaymentMethod()
         ));
 
+        $this->addColumn('shipping_method', array(
+            'header' => Mage::helper('sales')->__('Shipping Method'),
+            'index' => 'shipping_description',
+            'renderer' => new SLV_SalesReport_Block_Adminhtml_Sales_Order_Renderer_ShippingMethod()
+        ));
+
         $this->addColumn('shipping_name', array(
             'header' => Mage::helper('sales')->__('Shipping Name'),
             'index' => 'shipping_name',
