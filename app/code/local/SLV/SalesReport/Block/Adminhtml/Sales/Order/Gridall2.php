@@ -154,9 +154,10 @@ class SLV_SalesReport_Block_Adminhtml_Sales_Order_Gridall2 extends Mage_Adminhtm
 
         $this->addColumn('discount_code', array(
             'header' => Mage::helper('sales')->__('Discount Code'),
-            'index' => 'discount_code',
-            'type'  => 'currency',
-            'currency' => 'coupon_code',
+//            'index' => 'discount_code',
+            'index' => 'coupon_code',
+//            'type'  => 'currency',
+//            'currency' => 'coupon_code',
         ));
 
         $this->addColumn('discount_amount', array(
